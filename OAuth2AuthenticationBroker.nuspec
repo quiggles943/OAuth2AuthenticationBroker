@@ -3,15 +3,15 @@
   <metadata>
     <id>$id$</id>
     <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
+    <title>OAuth2AuthenticationBroker</title>
+    <authors>Paul Buchanan-Quigley</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <!-- <icon>icon.png</icon> -->
-    <projectUrl>http://project_url_here_or_delete_this_line/</projectUrl>
-    <description>$description$</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-    <copyright>$copyright$</copyright>
-    <tags>Tag1 Tag2</tags>
+    <projectUrl>https://github.com/quiggles943/OAuth2AuthenticationBroker</projectUrl>
+    <description>Package to manage SSO for OAuth2 in UWP applications</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright ©  2022</copyright>
+    <tags>OAuth2 Authentication</tags>
   </metadata>
 </package>

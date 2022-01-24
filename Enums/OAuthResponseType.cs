@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OAuth2AuthenticationBroker.Enums
 {
-    internal enum OAuthResponseType
+    public enum OAuthResponseType
     {
         code,
         password,

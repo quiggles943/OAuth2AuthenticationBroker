@@ -19,7 +19,7 @@ namespace OAuth2AuthenticationBroker.Manager
     /// <summary>
     /// Manages the authentication process
     /// </summary>
-    internal class OAuth2AuthenticationBrokerManager
+    public class OAuth2AuthenticationBrokerManager
     {
         private static AppWindow AppWindow;
         /// <summary>
