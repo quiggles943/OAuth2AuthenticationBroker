@@ -12,6 +12,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using OAuth2AuthenticationBroker.Models;
 using OAuth2AuthenticationBroker.Functions;
+using System.Reflection;
 
 namespace OAuth2AuthenticationBroker.Manager
 {
@@ -77,6 +78,7 @@ namespace OAuth2AuthenticationBroker.Manager
         private string CodeVerifier { get; set; }
         private string CodeChallenge { get; set; }
         private string State { get; set; }
+        public static string AgentName = "OAuth2AuthenticatonBroker";
         public OAuth2AuthenticationBrokerManager()
         {
             ChallengeMethod = OAuthCodeChallengeMethod.Plain;
@@ -158,7 +160,7 @@ namespace OAuth2AuthenticationBroker.Manager
                 httpClient.BaseAddress = new Uri(TokenEndpoint);
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("utf-8"));
-                httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("SecureImageViewer", "1.0.0"));
+                httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(AgentName, Assembly.GetExecutingAssembly().GetName().Version.ToString()));
 
                 Dictionary<string, string> formContent = new Dictionary<string, string>();
                 formContent.Add("client_id", ClientId);
@@ -191,7 +193,7 @@ namespace OAuth2AuthenticationBroker.Manager
                 httpClient.BaseAddress = new Uri(UserInfoEndpoint);
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("utf-8"));
-                httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("SecureImageViewer", "1.0.0"));
+                httpClient.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(AgentName, Assembly.GetExecutingAssembly().GetName().Version.ToString()));
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
                 HttpContent httpContent = new StringContent("");
                 HttpResponseMessage response = await httpClient.GetAsync("");
