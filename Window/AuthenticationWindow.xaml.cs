@@ -79,22 +79,6 @@ namespace OAuth2AuthenticationBroker.Window
             "</html>");
             AuthenticationWindowResult loginResult = new AuthenticationWindowResult() { Success = true, AuthCode = authCode };
             Complete?.Invoke(loginResult, new RoutedEventArgs());
-            /*try
-            {
-                TokenResult = await GetTokenFromAuthCode(authCode);
-                if (TokenResult != null)
-                {
-                    UserInfo = await GetUserInfo(TokenResult.access_token);
-                }
-                LoginResult = new OAuthLoginResult() { Identity = new OAuthIdentity { UserName = UserInfo.UserName, UserId = UserInfo.UserId, Token = TokenResult, UserInformation = UserInfo }, Success = true  };
-                Complete?.Invoke(LoginResult, new RoutedEventArgs());
-            }
-            catch(OAuth2AuthenticationException ex)
-            {
-                LoginResult = new OAuthLoginResult() {Success = false, Error = ex.Error };
-                Complete?.Invoke(LoginResult, new RoutedEventArgs());
-                //throw ex;
-            }*/
         }
 
         private void WebView_UnsupportedUriSchemeIdentified(WebView sender, WebViewUnsupportedUriSchemeIdentifiedEventArgs args)
@@ -143,13 +127,5 @@ namespace OAuth2AuthenticationBroker.Window
             result = result.Substring(0, result.Length - 1);
             return result;
         }
-    }
-
-
-    enum AuthState
-    {
-        Authorize,
-        Token,
-        Finished
     }
 }
